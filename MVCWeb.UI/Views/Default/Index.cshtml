@@ -1,0 +1,43 @@
+﻿@{
+    Layout = null;
+    var isim = ViewData["isim"];
+    //complex type atarsak ne olur. Person List<Person>
+    var isim2 = ViewBag.hede;
+}
+
+@using MVCWeb.UI.Models
+@model  Person
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>
+                @isim
+
+            </li>
+            <li>
+                @isim2
+            </li>
+            <li>
+                @TempData["isim"]
+            </li>
+        </ul>
+
+        <ol>
+            <li>
+                @Model.Ad
+            </li>
+            <li>
+                @Model.Soyad
+            </li>
+        </ol>
+    </div>
+</body>
+</html>
