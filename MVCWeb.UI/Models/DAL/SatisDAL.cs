@@ -12,7 +12,6 @@ namespace MVCWeb.UI.Models.DAL
 {
 	public static class SatisDAL
 	{
-		
 		public static void SatisYap(SatisVM satis)
 		{
 			using (TransactionScope scope = new TransactionScope())
@@ -25,7 +24,6 @@ namespace MVCWeb.UI.Models.DAL
 						satis.OrderDetailInfo.OrderID = eklenmisSiparis.OrderID;
 						db.Order_Details.Add(new SatisVMMapping().OrderDetailVMToOrderDetail(satis.OrderDetailInfo));
 						
-						//stok dusurme.metoda cikar
 
 						UrunDAL urunDal = new UrunDAL();
 						
