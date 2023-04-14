@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@model MVCWeb.UI.Models.VM.SehirVM
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MyDropDownListFor</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+    <div>
+
+	    @*@Html.DropDownList("Sehirlerim", "seciniz..")*@ 
+	    @*System.InvalidOperationException: 'There is no ViewData item of type 'IEnumerable<SelectListItem>
+            ' that has the key 'Sehirlerim'.'  SEHİRLERİM İSMİNDE VIEWDATAYA BİR LİST GÖNDERMEN LAZİM!!    *@
+
+            <br />
+            @Html.DropDownList("Sehirler", new List<SelectListItem>()
+            {
+                new SelectListItem(){Text = "van", Value = "15" },
+                new SelectListItem(){Text = "hakkari", Value = "16" }
+                }, new { @style = "cplor:red" })
+
+	    @*Controllerdan gelen SelectList tipi burada List<SelectListItem> tipine nasil cevirilir?*@
+	    <br/>
+        @using (Html.BeginForm())
+        {
+	        <h5> FOR kullanımı</h5>
+	    @*@Html.DropDownListFor(a=>a.) eger model list ise ddlfor kullanamazsin!!!!*@
+	        @Html.DropDownListFor(a =>a.SehirId, new List<SelectListItem>()
+	        {
+		        new SelectListItem(){Text = "van", Value = "15" },
+		        new SelectListItem(){Text = "hakkari", Value = "16" }
+	        }, "seçiniz..") //form icinde tanimlamam ve secimi bitir demem buradaki sehir value degerini elde etmemi saglar.
+        
+	        <input type="submit" name="name" value="seçimi bitir"/>
+        }
+	   
+    </div>
+</body>
+</html>

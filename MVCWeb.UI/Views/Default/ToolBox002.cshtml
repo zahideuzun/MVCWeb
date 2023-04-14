@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = null;
+}
+@model MVCWeb.UI.Models.VM.SoftwareVM
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ToolBox002</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+    <div>
+        C# @Html.RadioButtonFor(a => a.Key, "C sharp")
+
+        <br />
+       CSharp @Html.RadioButtonFor(a => a.Key, "CSharp", new Dictionary<string, object>()
+        {
+            {"fdsfdsfd", "zahide"},
+			{"class", "text-danger" }
+        })
+
+    </div>
+</body>
+</html>

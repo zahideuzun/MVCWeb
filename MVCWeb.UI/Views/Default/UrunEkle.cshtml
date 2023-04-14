@@ -1,0 +1,50 @@
+﻿
+@{
+    Layout = null;
+}
+@model MVCWeb.UI.Models.VM.UrunEkleVM
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UrunEkle</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <span>Ürün Adı</span>
+            @Html.TextBoxFor(a => a.UrunAdi)
+	        <br />
+            <span> Stok Miktarı </span>
+           @Html.TextBoxFor(a => a.StokMiktari)
+	        <br />
+	        <span> Ürün Fiyatı </span>
+            @Html.TextBoxFor(a => a.UrunFiyati)
+	        <br />
+
+            //northwindde tek seferde tek ürün satilacak sekilde bir ekran. ve controller. satis nasil yapiliyodu? 
+            //son kullanici databasede hicbir veri null gecilmeyecek.
+            //stok dusurmeyi unutma!! 
+            //tek sayfada tek seferde bitecek. 
+
+	        <span> Kategorisi </span>
+            @Html.DropDownListFor(a => a.Kategorisi, Model.KategoriListesi, new { @class = "text-danger" })
+	        
+	        
+	        <br />
+	        <span> Tedarikçisi </span>
+            @Html.DropDownListFor(a => a.Tedarikcisi, Model.TedarikciListesi, new { @class = "text-danger" })
+            <br />
+            <input type="submit" name="name" value="Ürün Ekle" />
+        }
+
+
+    </div>
+</body>
+</html>

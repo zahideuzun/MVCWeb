@@ -46,7 +46,7 @@ namespace MVCWeb.UI.Models.DAL
 
 		public int KategoriyiVeriTabanındaDuzenle(KategoriVM duzenlenmisData)
 		{
-			//todo attach
+			// attach
 			var kategori = db.Categories.Find(duzenlenmisData.ID);
 			db.Categories.Attach(kategori);
 			//db.Entry(kategori).Property(x => x.CategoryName).IsModified = true;

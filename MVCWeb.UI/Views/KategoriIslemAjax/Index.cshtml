@@ -62,7 +62,7 @@
         }
 
     </div>
-    <script type="text/javascript">
+<script type="text/javascript">
         $("#btngetlistall").click(function () {
             $.ajax({
                 contentType: "application/json",
@@ -107,6 +107,7 @@
                     let result = jQuery.parseJSON(funk1);
                     console.log(result);
                     alert("Başarılı bir şekilde eklendi");
+                    //loadData();
                     //let newRow = `<tr> <td>${result.ID}</td> <td>${result.KategoriAdi}</td> <td>${result.KategoriAciklama}</td> </tr>`;
                     //$("#kategorilistele").append(newRow);
                 }

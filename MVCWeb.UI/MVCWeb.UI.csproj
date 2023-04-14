@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.10.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -63,6 +66,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -126,14 +130,24 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KategoriIslemAjaxController.cs" />
     <Compile Include="Controllers\KategoriIslemController.cs" />
+    <Compile Include="Controllers\SatisController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Mapping\MyAutoMapping\MapProfile.cs" />
+    <Compile Include="Mapping\SatisMapping\SatisVMMapping.cs" />
+    <Compile Include="Models\DAL\CalisanDAL.cs" />
+    <Compile Include="Models\DAL\KargoDAL.cs" />
     <Compile Include="Models\DAL\KategoriDAL.cs" />
+    <Compile Include="Models\DAL\MusteriDAL.cs" />
+    <Compile Include="Models\DAL\SatisDAL.cs" />
+    <Compile Include="Models\DAL\TedarikciDAL.cs" />
+    <Compile Include="Models\DAL\UrunDAL.cs" />
     <Compile Include="Models\DBFirst\Categories.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -186,7 +200,22 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\Validation\AgeControl.cs" />
+    <Compile Include="Models\VM\AccountVM\MyUser.cs" />
+    <Compile Include="Models\VM\AccountVM\MyUserVM.cs" />
+    <Compile Include="Models\VM\DBProductAddVM.cs" />
     <Compile Include="Models\VM\KategoriVM.cs" />
+    <Compile Include="Models\VM\UrunSatis\EmployeeVM.cs" />
+    <Compile Include="Models\VM\UrunSatis\KargoVM.cs" />
+    <Compile Include="Models\VM\UrunSatis\CustomerVM.cs" />
+    <Compile Include="Models\VM\SehirVM.cs" />
+    <Compile Include="Models\VM\SoftwareVM.cs" />
+    <Compile Include="Models\VM\TedarikciVM.cs" />
+    <Compile Include="Models\VM\UrunEkleVM.cs" />
+    <Compile Include="Models\VM\UrunSatis\OrderDetailVM.cs" />
+    <Compile Include="Models\VM\UrunSatis\OrderVM.cs" />
+    <Compile Include="Models\VM\UrunSatis\SatisVM.cs" />
+    <Compile Include="Models\VM\UrunSatis\UrunVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -285,6 +314,11 @@
     <Content Include="Views\KategoriIslem\Duzenle.cshtml" />
     <Content Include="Views\KategoriIslem\Ekle.cshtml" />
     <Content Include="Views\KategoriIslemAjax\Index.cshtml" />
+    <Content Include="Views\Default\ToolBox002.cshtml" />
+    <Content Include="Views\Default\MyDropDownListFor.cshtml" />
+    <Content Include="Views\Default\UrunEkle.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Satis\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
