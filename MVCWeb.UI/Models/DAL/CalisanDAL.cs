@@ -21,10 +21,10 @@ namespace MVCWeb.UI.Models.DAL
 				}).ToList();
 		}
 
-		public string EmployeeLogin(string kullaniciAdi)
+		public string EmployeeLogin(string kullaniciAdi, string kullaniciSoyad)
 		{
 			string kullaniciLogin = db.Employees
-				.SingleOrDefault(e => e.FirstName == kullaniciAdi).FirstName;
+				.SingleOrDefault(e => e.FirstName == kullaniciAdi && e.LastName ==kullaniciSoyad ).FirstName;
 			return kullaniciLogin;
 		}
 	}

@@ -23,14 +23,15 @@ namespace MVCWeb.UI.Models.DAL
 						Orders eklenmisSiparis = db.Orders.Add(new SatisVMMapping().OrderVMToOrder(satis.OrderInfo));
 						satis.OrderDetailInfo.OrderID = eklenmisSiparis.OrderID;
 						db.Order_Details.Add(new SatisVMMapping().OrderDetailVMToOrderDetail(satis.OrderDetailInfo));
-						
 
-						UrunDAL urunDal = new UrunDAL();
-						
-						var guncellenecekUrun = db.Products.Where(p => p.ProductID == satis.OrderDetailInfo.ProductID)
-							.SingleOrDefault();
-						urunDal.StoktanDusur(Convert.ToInt32(guncellenecekUrun.UnitsInStock), satis.OrderDetailInfo.Quantity);
-						
+						var guncellenecekUrunBilgisi = db.Products.Where(a => a.ProductID == satis.OrderDetailInfo.ProductID).SingleOrDefault();
+						guncellenecekUrunBilgisi.UnitsInStock -= satis.OrderDetailInfo.Quantity;
+
+						//UrunDAL urunDal = new UrunDAL();
+						//var guncellenecekUrun = db.Products.Where(p => p.ProductID == satis.OrderDetailInfo.ProductID)
+						//	.SingleOrDefault();
+						//urunDal.StoktanDusur(Convert.ToInt32(guncellenecekUrun.UnitsInStock), satis.OrderDetailInfo.Quantity);
+
 						db.SaveChanges();
 					}
 					
@@ -42,9 +43,6 @@ namespace MVCWeb.UI.Models.DAL
 				}
 			}
 			
-			
-			
 		}
-
 	}
 }
